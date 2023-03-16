@@ -1,14 +1,13 @@
-const { Schema, Types, model } = require('mongoose');
-
+const {Schema, Types, model} = require('mongoose');
 
 const schema = new Schema({
- name: { type: String, required: true },
- email: { type: String, required: true },
- movie_id: { type: Types.ObjectId },
- text: { type: String },
- date: { type: Date }
+    name: {type: String},
+    email: {type: String},
+    movie_id: {type: Types.ObjectId},
+    text: {type: String},
+    date: {type: Date}
 });
 
-const Comments = new model('comments', schema);
+const Comments =  new model('comments', schema, 'comments');
 
-module.exports = { Comments };
+module.exports = {Comments};

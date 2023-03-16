@@ -1,18 +1,28 @@
 {
-  "name": "lecture_2",
+  "name": "git",
   "version": "1.0.0",
-  "description": "",
+  "description": "none",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RickSanchezzz666/projects.git"
+  },
+  "keywords": [
+    "666"
+  ],
+  "author": "me",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RickSanchezzz666/projects/issues"
+  },
+  "homepage": "https://github.com/RickSanchezzz666/projects#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^6.9.1",
-    "uuid": "^9.0.0"
+    "mongoose": "^6.9.2"
   }
 }
