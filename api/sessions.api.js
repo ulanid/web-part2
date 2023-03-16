@@ -5,6 +5,7 @@ const router = Router();
 
 router.get("/sessions", async (req, res) => {
     const {userId} = req.query;
+    
     const queryDb = {};
 
     if (userId) {

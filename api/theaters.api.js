@@ -5,6 +5,7 @@ const router = Router();
 
 router.get("/theaters", async (req, res) => {
     const {city, zipcode, latitude, longtitude, theaterId} = req.query;
+    
     const queryDb = {};
 
     if (city) {

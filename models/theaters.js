@@ -10,6 +10,7 @@ const schema = new Schema({
             state: {type: String},
             zipcode: {type: String}
         },
+        
         geo: {type: Object, 
             type: {type: String},
             coordinates: {type: Array, 

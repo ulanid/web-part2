@@ -18,6 +18,7 @@ router.get("/users", async (req, res) => {
     const docs = await Users.find(queryDb);
 
     return res.status(200).send(docs);
+    
 });
 
 module.exports = { router };
