@@ -9,19 +9,19 @@ router.get("/theaters", async (req, res) => {
     const queryDb = {};
 
     if (city) {
-        queryDb.name = {$regex: city};
+        queryDb.name['location.address.city'] = {$regex: city};
     }
 
     if (zipcode) {
-        queryDb.name = {$regex: zipcode};
+        queryDb.name['location.address.zipcode'] = {$regex: zipcode};
     }
 
     if (latitude) {
-        queryDb.name = {$regex: latitude};
+        queryDb.name['location.geo.coordinates.0']=latitude;
     }
 
     if (longtitude) {
-        queryDb.name = {$regex: longtitude};
+        queryDb.name['location.geo.coordinates.1']=longtitude;
     }
 
     if (theaterId) {

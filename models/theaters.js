@@ -3,7 +3,7 @@ const {Schema, Types, model} = require('mongoose');
 const schema = new Schema({
     _id: {type: Types.ObjectId },
     theaterId: {type: String},
-    location: {type: Object,
+    location: {
         address: {type: Object,
             street1: {type: String},
             city: {type: String},
@@ -11,11 +11,10 @@ const schema = new Schema({
             zipcode: {type: String}
         },
         
-        geo: {type: Object, 
+        geo: {
             type: {type: String},
-            coordinates: {type: Array, 
-                latitude: {type: String},
-                longtitude: {type: String}
+            coordinates: {type: [Number]
+                
             }
         }
     }

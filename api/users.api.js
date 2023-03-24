@@ -12,7 +12,7 @@ router.get("/users", async (req, res) => {
     }
 
     if (email) {
-        queryDb.name = {$regex: email};
+        queryDb.email = {$regex: email};
     }
 
     const docs = await Users.find(queryDb);

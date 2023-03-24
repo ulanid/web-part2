@@ -9,7 +9,7 @@ router.get("/sessions", async (req, res) => {
     const queryDb = {};
 
     if (userId) {
-        queryDb.userId = {$regex: userId};
+        queryDb.userId = userId;
     }
 
     const docs = await Sessions.find(queryDb);
