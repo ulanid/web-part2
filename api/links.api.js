@@ -49,7 +49,7 @@ router.post("/links", async (req, res) => {
    
     try {
        if (!original) {
-           return res.status(400).send({ message: '400, Original link is required' });
+           return res.status(400).send({ message: 'Original link is required' });
        }
      linkMaker();
 
