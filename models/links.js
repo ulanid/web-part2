@@ -5,7 +5,7 @@ const schema = new Schema({
   original: { type: String, required: true },
   cut: { type: String, required: true, unique: true }
  },
- userId: { type: Types.ObjectId, required: true },
+ userId: { type: String, required: true },
  expiredAt: { type: Date }
 });
 
