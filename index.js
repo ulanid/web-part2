@@ -9,15 +9,15 @@ const scenario = fs.readFileSync('./scenario.txt', (err, data) => {
     console.log(data);
 })
 const resultNames = scenario.toString();
-const results_1 = resultNames.match(/^[a-z]+:/gmi);
+const results1 = resultNames.match(/^[a-z]+:/gmi);
 
 const resultText = scenario.toString();
-const results_2 = resultText.match(/[a-z]+.+[?,;.:!]/gmi);
+const results2 = resultText.match(/[a-z]+.+[?,;.:!]/gmi);
 
 const characters = [];
 const charactersSpeeches = [];
-results_1.forEach(characterName => {
- const name = characterName.slice(0, -1)
+results1.forEach(characterName => {
+ const name = characterName.slice(0, -1);
     if (!characters.includes(name)) {
       characters.push(name);
     }
@@ -27,7 +27,7 @@ for(let num = 0; num < characters.length; num += 1) {
   charactersSpeeches[num] = '';
 }
 
-results_2.forEach(texts => {
+results2.forEach(texts => {
   let result = texts.match(/^[a-z]+:/gmi);
   let notArray = result[0]
   let resSlice = notArray.slice(0, -1);
