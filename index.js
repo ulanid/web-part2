@@ -1,12 +1,14 @@
 const { text } = require('body-parser');
 const fs = require('fs')
 
+
 const scenario = fs.readFileSync('./scenario.txt', (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
     console.log(data);
+
 })
 const resultNames = scenario.toString();
 const results1 = resultNames.match(/^[a-z]+:/gmi);
