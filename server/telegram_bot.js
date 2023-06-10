@@ -13,13 +13,18 @@ module.exports = async (app, emitter) => {
 
  bot.command('login', (ctx) => {
   const [command, id] = ctx.message.text.split(' ');
+  const eventName = `login-${id}`;
   console.log(`Try to login id:${id}`);
   const userInfo = {
    firstName: ctx.from.first_name,
-   lastName: ctx.from.last_name
+   lastName: ctx.from.last_name || '',
   };
 
-  emitter.emit(`login-${id}`, userInfo);
+  if (!Object.values(userInfo).find(e => e.length)) {
+   userInfo.firstName = ctx.from.username || ctx.from.id;
+  }
+
+  emitter.emit(eventName, userInfo);
  });
 
  app.use(router);

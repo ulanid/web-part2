@@ -5,13 +5,11 @@ const events = require('events');
 const path = require('path');
 
 const PORT = 8000;
-
 const emitter = new events.EventEmitter();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, '../public/dist')));
 
 app.get('/connect', (req, res) => {
@@ -23,13 +21,11 @@ app.get('/connect', (req, res) => {
    'Cache-Control': 'no-cache'
   }
  );
-
  emitter.on('new-message', (message) => {
   console.log('message:', message);
   res.write(`data: ${JSON.stringify(message)} \n\n`);
  });
 });
-
 app.post('/messages', (req, res) => {
  const message = req.body;
  console.log('message:', message);

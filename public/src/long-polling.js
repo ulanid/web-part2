@@ -5,12 +5,12 @@ import { v4 as uuid } from 'uuid';
 
 const LongPollingChat = () => {
  const [userName, setUserName] = useState('');
- const [messages, setMessages] = useState(JSON.parse(localStorage.getItem('messages')) || []);
+ const [messages, setMessages] = useState([]);
  const [value, setValue] = useState("");
  const [showLogin, setShowLogin] = useState(true);
 
  const id = uuid();
- 
+
  const subscribeOnAuth = async () => {
   try {
    const { data } = await axios.get(`/login?id=${id}`);
@@ -28,9 +28,7 @@ const LongPollingChat = () => {
   try {
    const { data } = await axios.get('/messages');
    setMessages((prev) => {
-    const newMessages = [...prev, data.message];
-    localStorage.setItem('messages', JSON.stringify(newMessages));
-    return newMessages;
+    return [...prev, data.message];
    });
    subscribe();
   } catch (err) {
@@ -51,22 +49,11 @@ const LongPollingChat = () => {
  }, []);
 
  const sendMessage = async () => {
-  const saveMessage = {
-    userName,
-    text: value,
-    date: Date.now()
-   };
-  try {
-    await axios.post('/messages', saveMessage);
-    await axios.post('/api/message', saveMessage);
-    setMessages((prev) => {
-      const newMessages = [...prev, saveMessage];
-      localStorage.setItem('messages', JSON.stringify(newMessages));
-      return newMessages;
-    });
-  } catch (err) {
-    console.error(err);
-  };
+  await axios.post('/messages', {
+   userName,
+   text: value,
+   date: Date.now()
+  });
  };
 
  return (
