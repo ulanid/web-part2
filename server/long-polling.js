@@ -4,13 +4,12 @@ const cors = require('cors');
 const events = require('events');
 const path = require('path');
 
-const PORT = 8000;
+const PORT = 8080;
 const emitter = new events.EventEmitter();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, '../public/dist')));
 
 app.get('/messages', (req, res) => {
