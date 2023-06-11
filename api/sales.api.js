@@ -16,7 +16,7 @@ router.get("/sales", async (req, res) => {
     if (customer_age) {
         const { gt, lt } = JSON.parse(customer_age);
         if (lt && gt && lt < gt) {
-            return res.status(400).send('lt less then gt');
+            return res.status(400).send('lt less than gt');
         } else {
             dbQuery["customer.age"] = {$gte: gt, $lte: lt};
         }
